@@ -1,0 +1,20 @@
+Valve
+23
+Bearing
+12
+Bushing
+15
+Coupling
+25
+Flange
+17
+Gear
+5
+Gear Housing
+5
+Vacuum Gripper
+25
+Cable
+18
+Rod
+10
