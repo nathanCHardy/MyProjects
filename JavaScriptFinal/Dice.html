@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Dice</title>
+<link rel="stylesheet" href="final.css">
+</head>
+<body>
+ <div id="wrapper">
+      <header>
+ <img src="header.jpg" alt="My E-portfolio header" class="pic1">
+      </header>
+      <nav>
+       <ul><a href="index.html"><li>Home</li></a>
+   <a href="about.html"><li>About</li></a>
+  <li>Portfolio
+    <ul>
+       <a href="Ccode.html"><li>Code Samples</li></a>
+      <a href="WebD.html"><li>Web Development</li></a>
+       <a href="Pic.html"><li>Illustrations</li></a>
+    </ul>
+  </li>
+  <li>Games
+	<ul>
+       <a href="Dice.html"><li>Dice</li></a>
+      <a href="Guess.html"><li>Guess My Number</li></a>
+    </ul>
+		</li>
+  <a href="Contact.html"><li>Contact</li></a>
+	</ul>
+      </nav>
+      <main>
+			<p>The following is a dice game in which you make bets. You can't spend more money than you have, or letters, the rest of the rules are as follows.</p>
+			<h3 id="rule">
+			3 of a kind gets you double your bet. A 4,5,6 gets you 100x your bet, play and have fun.
+			</h3>
+       <img src="Image/Die1.BMP"  id="P1" alt="dice">
+			 <img src="Image/Die2.BMP"  id="P2" alt="dice">
+			 <img src="Image/Die3.BMP"  id="P3" alt="dice"><br>
+			 <input type="button" value="Roll" onclick="dice();">
+			 <label for="bet">Bet</label>
+			 <input type="text" id="bet" name="bet">
+			 <label>Score:</label>
+			 <label id="score">100</label><br><br>
+			 <input type="button" value="New Game" onclick="history.go(0)">
+      </main>
+      <footer>
+        <p>Copyright  ShadowDragon Inc.<br>
+          <a href="mailto:mynamehere@whatnot.com">mynamehere@whatnot.com</a></p>
+      </footer>
+    </div>
+		<script type="text/javascript" src="MyScript.js"></script>
+  </body>
+</html>

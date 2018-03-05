@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>SlideShow</title>
+<style>
+img {border: 2px solid black;}
+#stp {margin-left: 10px; background-color: grey; color: white;}
+#str {background-color: grey; color: white;}
+h3 {font-family: Arial;}
+hr {width: 400px; margin-left: 0px;}
+#Caption {font-family: Arial;}
+</style>
+</head>
+<body>
+<div id="title">
+<h3>Slide Show Presentations</h3>
+</div>
+<img src="Photo1.jpg" id="pic1"><br>
+<div id="Caption">Golden Gate Bridge</div><br><hr>
+<input type="button" value="Start Slide" onclick="start();" id="str">
+<input type="button" value="Stop Slide" onclick="stop();" id="stp">
+<script>
+var images = new Array ("Photo1.jpg", "Photo2.jpg", "Photo3.jpg", "Photo4.jpg", "Photo5.jpg", "Photo6.jpg", "photo7.jpg", "photo8.jpg"),
+    caption = new Array ("Golden Gate Bridge", "Rocky Coastline", "Waves crashing on the coast", "Sunset coast",
+		 "Cloudy Coastline", "Waterfall near Big Sur", "Coastal Lighthouse", "Bison!!!, got your attention now"),
+		 color = new Array ("red", "blue", "green", "black", "purple");
+
+function stop() {
+clearInterval(StSlide);
+}
+function start() {
+ StSlide = setInterval(function() {
+var rand = Math.floor(Math.random() * 8),
+ rand1 = Math.floor(Math.random() * 5),
+ stuff = document.getElementById("pic1"),
+ other = document.getElementById("Caption");
+stuff.src = images[rand]; 
+other.innerHTML = caption[rand].fontcolor(color[rand1]);
+}, 2000);
+}
+</script>
+</body>
+</html>

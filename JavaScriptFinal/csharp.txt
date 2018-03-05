@@ -1,0 +1,278 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+using System.Media;
+namespace Hangman_Final
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+        //Creates an instance of the random object
+        Random rand = new Random();
+        //creates a stream reader object
+        StreamReader inputFile;
+        //Variables to hold the text box entry
+        char Letter;
+        //Variable to hold characters in string array
+        string Word;
+        //Variable to hold the randomly generated number
+        int Number = 0;
+        //string array to hold words
+        string[] Words = new string[100];
+        //creates a label array
+        Label[] LabelArray = new Label[9];
+        //holds the amount of wrong answers
+        int Wrong = 0;
+        //holds the amount of correct answers
+        int right = 0;
+        //Holds the score
+        int Score = 0;
+       
+
+        //Method to clear the labels and put an underline instead
+        private void Clear()
+        {
+            lbl1.Text = "_";
+            lbl2.Text = "_";
+            lbl3.Text = "_";
+            lbl4.Text = "_";
+            lbl5.Text = "_";
+            lbl6.Text = "_";
+            lbl7.Text = "_";
+            lbl8.Text = "_";
+            lbl9.Text = "_";
+        }
+
+        //Method that gets the index of the character and places the correct guess
+        //inside the correct label
+        private void LetterPrint(int number)
+        {
+            int lastletter = Word.LastIndexOf(guess);
+            for (int index = 0; index < LabelArray.Length; index++)
+            {
+                if (number == index)
+                {
+                    LabelArray[index].Text = Letter.ToString();
+                    LabelArray[lastletter].Text = Letter.ToString();
+                }
+                
+            }
+
+        }
+
+        //Method that provides the proper amount of lables depending on the word length
+        private void Wordlength(string w)
+        {
+            for (int index = 0; index < LabelArray.Length; index++)
+            {
+                foreach (var label in LabelArray)
+                {
+                    if (index < Word.Length)
+                    {
+                        LabelArray[index].Visible = true;
+                    }
+                    else if (index >= Word.Length)
+                    {
+                        LabelArray[index].Visible = false;
+                    }
+                }
+            }
+
+        }
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            //resets right answers
+            right = 0;
+            //resets wrong answers
+            Wrong = 0;
+            //enables the guess button
+            btnGuess.Enabled = true;
+            //places the intial image in the picture box
+            picOne.Image = HangManList.Images[0];
+            //creates an instance of the soundplayer class
+            SoundPlayer My_BetterJukeBox = new SoundPlayer(Resource1.Face_in_the_Mirror);
+            //causes the seleceted wav file to play
+            My_BetterJukeBox.Play();
+            //places a random number in the variable
+            Number = rand.Next(100);
+            //places the array word in the variable
+            Word = Words[Number];
+            //calls the word length method and passes into it the word from the array
+            Wordlength(Word);
+            //method call that clears the labels and puts new underlines
+            Clear();
+            //puts the focus in the textbox
+            txtLetter.Focus();
+        }
+        //Property that returns text box entry
+        private string guess
+        {
+            get { return this.txtLetter.Text; }
+        }
+        private void btnGuess_Click(object sender, EventArgs e)
+        {
+            //instance of the sound player class
+            SoundPlayer My_BetterJukeBox = new SoundPlayer(Resource1.Face_in_the_Mirror);
+            //causes specified wav file to play
+            My_BetterJukeBox.Stop();
+            
+            //Variable that contains text box entry index
+            var index = Word.IndexOf(guess);
+            //contains the last index posistion of a letter
+            int lastletter = Word.LastIndexOf(guess);
+          
+            try
+            {
+                //puts text box entry into letter variable and convert it to a character
+                Letter = char.Parse(txtLetter.Text);
+                //determines if the word contains the text box entry
+                    if (Word.Contains(guess))
+                    {
+                        //determines if the label does not contain the entry
+                        if (!lbl1.Text.Contains(Letter) && !lbl2.Text.Contains(Letter) && !lbl3.Text.Contains(Letter)
+                            && !lbl4.Text.Contains(Letter) && !lbl5.Text.Contains(Letter) && !lbl6.Text.Contains(Letter)
+                            && !lbl7.Text.Contains(Letter) && !lbl8.Text.Contains(Letter) && !lbl9.Text.Contains(Letter))
+                        {
+                            //prints correct letters to the screen
+                            LetterPrint(index);
+                            //adds 5 to the score accumulator
+                            Score += 5;
+                            //adds 1 to the number of right answers
+                            right++;
+                            
+                            //determines if the last index of a letter is equal to the index
+                            //there by determining multiple letters
+                            if (lastletter != index)
+                            {
+                                //adds 1 to right accumulator
+                                right++;
+                            }
+                            
+                           
+                        }
+                            //displays if letter guessed is in textbox
+                        else
+                        {
+                            MessageBox.Show("You Guessed that letter already");
+                        }
+                    }
+                        //adds one to the wrong accumulator
+                    else
+                    {
+                        Wrong++;
+                    }
+               // determines if the word length is greater than or equal to the amount of right answers
+                if (right >= Word.Length)
+                {
+                    // disables the guess button on winning the game
+                    btnGuess.Enabled = false;
+                    //adds 10 to the score accumulator for guessing the whole word
+                    Score += 10;
+                    //shows that you won the game
+                    MessageBox.Show("You win, I'm sure your zombie is grateful");
+                }
+             //determines the amount of wrong answers and places the proper image in the picture box
+                //adds plays the bone breaking sound effect
+                if (Wrong >= 1 && !Word.Contains(guess))
+                {
+                    My_BetterJukeBox = new SoundPlayer(Resource1.Bone_Breaking);
+                    My_BetterJukeBox.Play();
+                    picOne.Image = HangManList.Images[1];
+                }
+                if (Wrong >= 2 && !Word.Contains(guess))
+                {
+                    My_BetterJukeBox.Play();
+                    picOne.Image = HangManList.Images[2];
+                }
+                if (Wrong >= 3 && !Word.Contains(guess))
+                {
+                    My_BetterJukeBox.Play();
+                    picOne.Image = HangManList.Images[3];
+                }
+                if (Wrong >= 4 && !Word.Contains(guess))
+                {
+                    My_BetterJukeBox.Play();
+                    picOne.Image = HangManList.Images[4];
+                }
+                if (Wrong >= 5 && !Word.Contains(guess))
+                {
+                    My_BetterJukeBox.Play();
+                    picOne.Image = HangManList.Images[5];
+                }
+                if (Wrong >= 6 && !Word.Contains(guess))
+                {
+                    //disables the guess button if you lose the game
+                    btnGuess.Enabled = false;
+                    picOne.Image = HangManList.Images[6];
+                    My_BetterJukeBox.Play();
+                    MessageBox.Show("Sorry you lose, try again with another zombie");
+                }
+            }
+                //catches unaccepted entries in the text box
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //clears the text box
+            txtLetter.Clear();
+            //puts the focus back in the text box
+            txtLetter.Focus();
+            //displays the score in the score label
+            lblScore.Text = Score.ToString();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //places labels in the label array
+            LabelArray[0] = lbl1;
+            LabelArray[1] = lbl2;
+            LabelArray[2] = lbl3;
+            LabelArray[3] = lbl4;
+            LabelArray[4] = lbl5;
+            LabelArray[5] = lbl6;
+            LabelArray[6] = lbl7;
+            LabelArray[7] = lbl8;
+            LabelArray[8] = lbl9;
+            //loads initial image to picture box
+            picOne.Image = HangManList.Images[0];
+            inputFile = File.OpenText("Words.txt");
+            //loop that places the contents of the text file into the string array
+            for (int index = 0; index < Words.Length; index++)
+            {
+                Words[index] = inputFile.ReadLine();
+            }
+            //disables the guess button on load
+            btnGuess.Enabled = false;
+            //creates an instance of the sound player object and places a wav file in it
+            SoundPlayer My_BetterJukeBox = new SoundPlayer(Resource1.Army_of_Darkness___Prologue);
+            //causes the selected file to play
+            My_BetterJukeBox.Play();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            //closes the form
+            this.Close();
+        }
+
+        private void mnuInfo_Click(object sender, EventArgs e)
+        {
+            //instance of the game info form
+            GameInfo myGame = new GameInfo();
+            //displays the game info form
+            myGame.Show();
+        }
+
+       
+    }
+}

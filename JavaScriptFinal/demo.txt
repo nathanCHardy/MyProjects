@@ -1,0 +1,345 @@
+Click on any of the tags above to see samples of my code down here. 
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Media;
+using System.Windows.Input;
+using System.Text;
+using System.Web.Caching;
+
+public partial class CSharpGame : System.Web.UI.Page
+{
+
+    //Creates an instance of the random object
+    Random rand = new Random();
+    //creates a stream reader object
+    StreamReader inputFile;
+    //Variables to hold the text box entry
+    char Letter;
+    //Variable to hold characters in string array
+    string Word;
+    //Variable to hold the randomly generated number
+    int Number = 0;
+    //string array to hold words
+    string[] Words = new string[100];
+    string[] Url = new string[7];
+    //creates a label array
+    Label[] LabelArray = new Label[9];
+    //holds the amount of wrong answers
+    int Wrong = 0;
+    //holds the amount of correct answers
+    int right = 0;
+    //Holds the score
+    int Score = 0;
+     
+
+
+    //Method to clear the labels and put an underline instead
+    private void Clear()
+    {
+        lbl1.Text = "_";
+        lbl2.Text = "_";
+        lbl3.Text = "_";
+        lbl4.Text = "_";
+        lbl5.Text = "_";
+        lbl6.Text = "_";
+        lbl7.Text = "_";
+        lbl8.Text = "_";
+        lbl9.Text = "_";
+    }
+
+    //Method that gets the index of the character and places the correct guess
+    //inside the correct label
+    private void LetterPrint(int number)
+    {
+        Word = HttpContext.Current.Session["SWord"].ToString();
+        guess = HttpContext.Current.Session["Guess"].ToString();
+        Letter = Convert.ToChar(HttpContext.Current.Session["Letter"]);
+       
+        int lastletter = Word.LastIndexOf(guess);
+        lastletter = Convert.ToInt32(HttpContext.Current.Session["lLetter"]);
+        for (int index = 0; index < LabelArray.Length; index++)
+        {
+            if (number == index)
+            {
+                LabelArray[index].Text = Letter.ToString();
+                LabelArray[lastletter].Text = Letter.ToString();
+            }
+
+        }
+
+    }
+
+    //Method that provides the proper amount of lables depending on the word length
+    private void Wordlength(string w)
+    {
+        for (int index = 0; index < LabelArray.Length; index++)
+        {
+            foreach (var label in LabelArray)
+            {
+                if (index < Word.Length)
+                {
+                    LabelArray[index].Visible = true;
+                }
+                else if (index >= Word.Length)
+                {
+                    LabelArray[index].Visible = false;
+                }
+            }
+        }
+
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //places labels in the label array
+        LabelArray[0] = lbl1;
+        LabelArray[1] = lbl2;
+        LabelArray[2] = lbl3;
+        LabelArray[3] = lbl4;
+        LabelArray[4] = lbl5;
+        LabelArray[5] = lbl6;
+        LabelArray[6] = lbl7;
+        LabelArray[7] = lbl8;
+        LabelArray[8] = lbl9;
+        //loads initial image to picture box
+        string path = Server.MapPath("~/W/Words.txt");
+        inputFile = File.OpenText(path);
+        //loop that places the contents of the text file into the string array
+        for (int index = 0; index < Words.Length; index++)
+        {
+            Words[index] = inputFile.ReadLine();
+        }
+
+        HttpContext.Current.Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+        HttpContext.Current.Response.Cache.SetValidUntilExpires(false);
+        HttpContext.Current.Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
+        HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        HttpContext.Current.Response.Cache.SetNoStore();
+        HttpContext.Current.Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+
+       
+        
+    }
+
+   
+    protected void btnNewGame_Click(object sender, EventArgs e)
+    {
+            WL1.Visible = false;
+            WL2.Visible = false;
+            WL3.Visible = false;
+            WL4.Visible = false;
+            WL5.Visible = false;
+            WL6.Visible = false;
+            Url[0] = "~/Images/fullbody.jpg";
+            Url[1] = "~/Images/onearm.jpg";
+            Url[2] = "~/Images/noarms.jpg";
+            Url[3] = "~/Images/oneleg.jpg";
+            Url[4] = "~/Images/nolegs.jpg";
+            Url[5] = "~/Images/nobody.jpg";
+            Url[6] = "~/Images/playerloses.jpg";
+            Session["U1"] = Url[0];
+            Session["U2"] = Url[1];
+            Session["U3"] = Url[2];
+            Session["U4"] = Url[3];
+            Session["U5"] = Url[4];
+            Session["U6"] = Url[5];
+            Session["U7"] = Url[6];
+            //resets right answers
+            right = 0;
+            Session["Right"] = right;
+            //resets wrong answers
+            Wrong = 0;
+            Session["Wrong"] = Wrong;
+            //enables the guess button
+            btnGuess.Enabled = true;
+            //places a random number in the variable
+            Number = rand.Next(100);
+            //places the array word in the variable
+            Word = Words[Number];
+            //calls the word length method and passes into it the word from the array
+            Wordlength(Word);
+            //method call that clears the labels and puts new underlines
+            Clear();
+            //puts the focus in the textbox
+            txtLetter.Focus();
+            Session["SWord"] = Word;
+            Image1.ImageUrl = Url[0];
+            Label1.Text = string.Empty;
+           
+            
+        }
+        //Property that returns text box entry
+    
+  
+        public string guess
+        {
+           
+            get { return txtLetter.Text.ToUpper(); }
+            set { }
+            
+        }
+    
+        public string wrongguess
+        {
+            get { return guess; }
+            set { }
+        }
+    
+    
+    protected void btnGuess_Click(object sender, EventArgs e)
+{
+        
+    Word = HttpContext.Current.Session["SWord"].ToString();
+    Url[0] = HttpContext.Current.Session["U1"].ToString();
+    Url[1] = HttpContext.Current.Session["U2"].ToString();
+    Url[2] = HttpContext.Current.Session["U3"].ToString();
+    Url[3] = HttpContext.Current.Session["U4"].ToString();
+    Url[4] = HttpContext.Current.Session["U5"].ToString();
+    Url[5] = HttpContext.Current.Session["U6"].ToString();
+    Url[6] = HttpContext.Current.Session["U7"].ToString();
+    Wrong = Convert.ToInt32(HttpContext.Current.Session["Wrong"]);
+    Session["Guess"] = guess;
+    guess = HttpContext.Current.Session["Guess"].ToString();
+    right = Convert.ToInt32(HttpContext.Current.Session["Right"]);
+   
+    if (!Word.Contains(guess) && Wrong == 0)
+    {
+        WL1.Visible = true;
+        WL1.Text = wrongguess;
+    }
+    else if (!Word.Contains(guess) && Wrong == 1)
+    {
+        WL2.Visible = true;
+        WL2.Text = wrongguess;
+    }
+    else if (!Word.Contains(guess) && Wrong == 2)
+    {
+        WL3.Visible = true;
+        WL3.Text = wrongguess;
+    }
+    else if (!Word.Contains(guess) && Wrong == 3)
+    {
+        WL4.Visible = true;
+        WL4.Text = wrongguess;
+    }
+    else if (!Word.Contains(guess) && Wrong == 4)
+    {
+        WL5.Visible = true;
+        WL5.Text = wrongguess;
+    }
+    else if (!Word.Contains(guess) && Wrong == 5)
+    {
+        WL6.Visible = true;
+        WL6.Text = wrongguess;
+    }
+    //Variable that contains text box entry index
+    var index = Word.IndexOf(guess);
+    Session["Index"] = index;
+    index = Convert.ToInt32(HttpContext.Current.Session["Index"]);
+    //contains the last index posistion of a letter
+    int lastletter = Word.LastIndexOf(guess);
+    Session["lLetter"] = lastletter;
+    lastletter = Convert.ToInt32(HttpContext.Current.Session["lLetter"]);
+    try
+    {
+        //puts text box entry into letter variable and convert it to a character
+        Letter = char.Parse(txtLetter.Text.ToUpper());
+        Session["Letter"] = Letter;
+        Letter = Convert.ToChar(HttpContext.Current.Session["Letter"]);
+        //determines if the word contains the text box entry
+        if (Word.Contains(guess))
+        {
+            //determines if the label does not contain the entry
+            if (!lbl1.Text.Contains(Letter) && !lbl2.Text.Contains(Letter) && !lbl3.Text.Contains(Letter)
+                && !lbl4.Text.Contains(Letter) && !lbl5.Text.Contains(Letter) && !lbl6.Text.Contains(Letter)
+                && !lbl7.Text.Contains(Letter) && !lbl8.Text.Contains(Letter) && !lbl9.Text.Contains(Letter))
+            {
+                //prints correct letters to the screen
+                LetterPrint(index);
+                right++;
+                Session["Right"] = right;
+
+                //determines if the last index of a letter is equal to the index
+                //there by determining multiple letters
+                if (lastletter != index)
+                {
+                    //adds 1 to right accumulator
+                    right++;
+                    Session["Right"] = right;
+                }
+
+
+            }
+            //displays if letter guessed is in textbox
+            else
+            {
+                Label1.Text = "You Guessed that letter already";
+            }
+        }
+        //adds one to the wrong accumulator
+        else
+        {
+            Wrong++;
+            Session["Wrong"] = Wrong;
+        }
+        // determines if the word length is greater than or equal to the amount of right answers
+        if (right >= Word.Length)
+        {
+            // disables the guess button on winning the game
+            btnGuess.Enabled = false;
+            //shows that you won the game
+            Label1.Text = "You win, I'm sure your zombie is grateful";
+            Session.Clear();
+        }
+        //determines the amount of wrong answers and places the proper image in the picture box
+        //adds plays the bone breaking sound effect
+        if (Wrong >= 1 && !Word.Contains(guess))
+        {
+            Image1.ImageUrl = Url[1];
+        }
+        if (Wrong >= 2 && !Word.Contains(guess))
+        {
+            Image1.ImageUrl = Url[2];
+        }
+        if (Wrong >= 3 && !Word.Contains(guess))
+        {
+            Image1.ImageUrl = Url[3];
+        }
+        if (Wrong >= 4 && !Word.Contains(guess))
+        {
+            Image1.ImageUrl = Url[4];
+        }
+        if (Wrong >= 5 && !Word.Contains(guess))
+        {
+            Image1.ImageUrl = Url[5];
+        }
+        if (Wrong >= 6 && !Word.Contains(guess))
+        {
+            //disables the guess button if you lose the game
+            btnGuess.Enabled = false;
+            Image1.ImageUrl = Url[6];
+            Label1.Text = "Sorry you lose, try again with another zombie";
+        }
+    }
+    //catches unaccepted entries in the text box
+    catch (Exception ex)
+    {
+       Label1.Text = (ex.Message);
+    }
+    //clears the text box
+    txtLetter.Text = string.Empty;
+    //puts the focus back in the text box
+    txtLetter.Focus();
+   
+       
+
+        
+}
+}
+   

@@ -1,0 +1,198 @@
+body {background-image: url(flameback.png); 
+	  background-size: 70%, 100%;
+		font-family: "Times New Roman", Roman, Verdana; 
+		background-attachment: fixed;} 
+#wrapper {width: 80%; 
+		  margin-left: auto; margin-right: auto;
+		  background-color: red; 
+			box-shadow: 5px 5px 5px yellow;}
+h2 {text-align: center; text-shadow: 5px 5px 5px rgb(48, 48, 48); }
+p {text-indent: 20px; }
+ul {list-style-type: upper-roman;}
+header {height: 119px; background-color: rgb(48, 48, 48); text-align: center;
+position: relative;
+color: yellow;
+ box-shadow: 5px 5px 5px yellow; }
+ nav { background-color:rgb(48, 48, 48); box-shadow: 5px 5px 5px yellow; height: 40px; color: yellow;
+
+ padding: 10px; padding-top: 20px;}
+ nav a {text-decoration: none; display: inline; padding-left: 10px;}
+nav a:visited { color: yellow; }
+nav a:hover { color: red; }
+nav a:before {content: "<><><><><>";}
+nav a:after {content: "<><><><><>"; }
+  footer { background-color: rgb(48, 48, 48); color: yellow;  box-shadow: 5px 5px 5px yellow; height: 40px; 
+	padding: 10px; padding-top: 20px; }
+	footer a {text-decoration: none; display: inline; padding-left: 10px; }
+footer a:visited { color: yellow; }
+footer a:hover { color: red; }
+footer a:before {content: "<><><><><>";}
+footer a:after {content: "<><><><><>"; }
+.tt { font-family: "Times New Roman", Roman, Verdana;
+
+-webkit-transition: color 3s;
+-webkit-transition-timing-function: linear;
+transition: color 3s;
+transition-timing-function: linear;
+-webkit-transition: text-shadow 1s;
+transition: text-shadow 1s;
+
+ }
+ 
+.tt:hover { color: yellow;
+font-size: 20px;
+background-color: rgb(48, 48, 48);
+font-family: "Freestyle Script", "Brush Script Std", "Kunstler Script", "Segoe Script";
+text-shadow: 5px 5px 5px yellow;}
+.animate1 {position: relative;
+		height: 200px;	animation-name: myfirst;
+		animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 4s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+				.animate2 {position: relative;
+		height: 200px;	animation-name: myfirst;
+		animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 5s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+				.animate3 {position: relative;
+		height: 200px;	animation-name: myfirst;
+		animation-duration: 9s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 9s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+				.animate4 {position: relative;
+		height: 200px;	animation-name: myfirst;
+		animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+				.animate5 {position: relative;
+		height: 200px;	animation-name: myfirst;
+		animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 4s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+				.animate6 {position: relative;
+		height: 200px;	animation-name: myfirst;
+		animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 3s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+				.animate7 {position: relative;
+		height: 200px;	animation-name: myfirst;
+		animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 5s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+			@keyframes myfirst {
+   0%   {left:0px; top:0px; opacity: 0; }
+	 10% {left:0px; top:20px; opacity: 0;}
+    20%  {left:28px; top:30px; opacity: 0.2;}
+		30% {left:40px;  top:50px; opacity: 0.4;}
+		40% {left:40px; top:60px; opacity: 0.5;}
+    50%  {left:0px; top:80px; opacity: 0.5;}
+    60%  {left:25px; top:60px; opacity: 0.7;}
+		70% {left:35px; top:50px; opacity: 0.8;}
+		80% {left:45px; top:30px; opacity: 0.9;}
+		90% {left:30px; top:20px;  opacity: 1;}
+    100% {left:15px; top:10px;  opacity: 1;}
+}
+@-webkit-keyframes myfirst {
+   0%   {left:0px; top:0px; opacity: 0; }
+	 10% {left:0px; top:20px; opacity: 0;}
+    20%  {left:28px; top:30px; opacity: 0.2;}
+		30% {left:40px;  top:50px; opacity: 0.4;}
+		40% {left:40px; top:60px; opacity: 0.5;}
+    50%  {left:0px; top:80px; opacity: 0.5;}
+    60%  {left:25px; top:60px; opacity: 0.7;}
+		70% {left:35px; top:50px; opacity: 0.8;}
+		80% {left:45px; top:30px; opacity: 0.9;}
+		90% {left:30px; top:20px;  opacity: 1;}
+    100% {left:15px; top:10px;  opacity: 1;}
+}
+#image1 { position: absolute; top: 8px; left: 50px;}
+#image2 { position: absolute; top: 0px; left: 200px;}
+#image3 { position: absolute; top: 0px; left: 300px;}
+#image4 { position: absolute; top: 6px; left: 500px;}
+#image5 { position: absolute; top: 0px; left: 700px;}
+#image6 { position: absolute; top: 0px; left: 900px;}
+#image7 { position: absolute; top: 9px; left: 1000px;}	

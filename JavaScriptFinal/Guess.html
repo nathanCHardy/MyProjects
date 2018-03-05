@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Guess My Number</title>
+<link rel="stylesheet" href="final.css">
+</head>
+<body>
+ <div id="wrapper">
+      <header>
+
+ <img src="header.jpg" alt="My E-portfolio header" class="pic1">
+      </header>
+      <nav>
+       <ul><a href="index.html"><li>Home</li></a>
+  <a href="about.html"><li>About</li></a>
+  <li>Portfolio
+    <ul>
+       <a href="Ccode.html"><li>Code Samples</li></a>
+      <a href="WebD.html"><li>Web Development</li></a>
+       <a href="Pic.html"><li>Illustrations</li></a>
+    </ul>
+  </li>
+  <li>Games
+	<ul>
+       <a href="Dice.html"><li>Dice</li></a>
+     <a href="Guess.html"><li>Guess My Number</li></a>
+    </ul>
+		</li>
+  <a href="Contact.html"><li>Contact</li></a>
+	</ul>
+      </nav>
+      <main>
+			<p>The following is a simple guessing game written in javascript. Enter the range of numbers, then press the start button. Put in your
+			guess and see if you can guess my number. The game will tell you how many guesses it took to find my number, enjoy. </p>
+      <form name="game" id="gs">
+<table border=1>
+<tr>
+<td  colspan=2>Range of numbers</td>
+<td  rowspan=2><input type=button value=" Start " onclick="range()"></td>
+</tr>
+<tr>
+<td>From:<br><input type=text name=from size=10></td>
+<td>To:<br><input type=text name=to size=10></td>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td colspan=3><input type=text name=help size=70></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr><td colspan=3><input type=text name=number size=10><input type=button value=" Guess " onclick="guess()"></td>
+</tr>
+</table>
+</form>
+      </main>
+      <footer>
+        <p>Copyright  ShadowDragon Inc.<br>
+          <a href="mailto:mynamehere@whatnot.com">mynamehere@whatnot.com</a></p>
+      </footer>
+    </div>
+		<script type="text/javascript" src="MyScript.js"></script>
+  </body>
+</html>

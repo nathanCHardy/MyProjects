@@ -1,0 +1,112 @@
+Public Class MainForm
+
+    'Clears the form
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+        lblAddress.Text = vbNullString
+        lblName.Text = vbNullString
+        lblPhone.Text = vbNullString
+        lblBalance.Text = vbNullString
+
+    End Sub
+    'Closes the form
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    'Display the data from the collection into the correct labels
+    Public Sub DisplayData(ByVal a As Accounts)
+        lblAddress.Text = a.Address
+        lblName.Text = a.Name
+        lblPhone.Text = a.Phone
+        lblBalance.Text = a.Balance
+    End Sub
+   
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        'holds the string variable entered in the text box
+        Dim strSearch As String
+        'Creates an instance of the accounts class
+        Dim objAccount As New Accounts
+        'puts the input box entry into the string variable
+        strSearch = InputBox("Enter the customers full name")
+
+        Try
+            'Retrieves the account info from the collection
+            objAccount = CType(AccountInfo.Item(
+                    strSearch), Accounts)
+            'Displays the data into the labels
+            DisplayData(objAccount)
+        Catch ex As Exception
+            'Displays if an error occurs
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+    'Displays the add account window
+    Private Sub AddEditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddEditToolStripMenuItem.Click
+        Dim frmAddAccount As New AddAccount
+        frmAddAccount.Show()
+    End Sub
+    'Displays the edit and delete window
+    Private Sub EditDeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditDeleteToolStripMenuItem.Click
+        Dim frmEditDeleteForm As New EditDeleteForm
+        frmEditDeleteForm.Show()
+    End Sub
+    'Displays the display account form window
+    Private Sub DisplayAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DisplayAllToolStripMenuItem.Click
+        Dim frmAccountDisplayForm As New AccountDisplayForm
+        frmAccountDisplayForm.Show()
+    End Sub
+
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'Creates an instance of the accounts class
+        Dim objAccount As New Accounts
+        'Creates a stream reader object
+        Dim ReadFile As StreamReader
+        'puts the file name into the stream reader variable
+        ReadFile = File.OpenText("Accounts.txt")
+       
+        'Loop that continues until the end of the file
+        Do While ReadFile.Peek <> -1
+            'creates a new instance of accounts in the loop
+            objAccount = New Accounts
+            Try
+                With objAccount
+                    'Reads each line of the file into the proper collection variable
+                    .Name = ReadFile.ReadLine
+                    .Address = ReadFile.ReadLine
+                    .Phone = ReadFile.ReadLine
+                    .Balance = CDec(ReadFile.ReadLine)
+
+
+                End With
+                'Adds the file info into the collection
+                AccountInfo.Add(objAccount, objAccount.Name)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        Loop
+        'Closes the file
+        ReadFile.Close()
+
+    End Sub
+    Private Sub MainForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        'Creates a stream writer variable
+        Dim outputFile As StreamWriter
+        'Creates an instance of the accounts class
+        Dim objAccount As New Accounts
+        'Puts the file name into the stream writer variable
+        outputFile = File.CreateText("Accounts.txt")
+        'Loops through each object in the collection
+        For Each objAccount In AccountInfo
+            With objAccount
+                'Writes each line of the collection into the file
+                outputFile.WriteLine(.Name)
+                outputFile.WriteLine(.Address)
+                outputFile.WriteLine(.Phone)
+                outputFile.WriteLine(.Balance)
+
+            End With
+        Next
+        'Closes the file
+        outputFile.Close()
+    End Sub
+End Class
