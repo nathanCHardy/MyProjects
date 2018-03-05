@@ -1,0 +1,255 @@
+body {
+	background-color: blue;
+	background-image: url(awings.png);
+	color: blue;
+	font-family: Gunguh, "Imprint MT Shadow", "Times New Roman";
+}
+header { background-color: gold;
+	outline-style: solid;
+	color: #ffffff;
+	text-shadow: 5px 5px 5px #000000;
+	position: relative;
+	text-align: center;
+	background-image: url(angel.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100px;
+}
+#wrapper {
+	
+	background-color: silver;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	min-width: 960px;
+	box-shadow: 5px 5px 5px #000000;
+}
+nav { background-color: gold;
+	  height: 40px;
+	  padding-bottom: 15px;
+		outline-style: solid;
+}	 
+nav a { 
+		width: auto;
+		display: inline-block;
+	    text-decoration: none;
+	    padding-bottom: 15px;
+		padding: 1em;
+        font-size: 1.1em;
+		font-weight: bold;
+		margin-left: 80px; }
+span { margin-left: 40px; 
+ 
+font-size: 1.1em;
+color: blue; }
+nav a:visited {
+	color: #ffffff;
+}
+
+nav a:hover {
+	color: #000000;
+}
+
+nav ul { padding: 0px;
+		 margin: 0px;
+	     list-style-type: none;
+}
+
+footer { background-color: gold;
+	  height: 40px;
+		outline-style: solid;
+	  padding-bottom: 15px;
+}	 
+footer a { 
+		width: auto;
+		display: inline-block;
+		border-bottom: 1px solid #330000;
+	    text-decoration: none;
+	    padding-bottom: 15px;
+		padding: 1em;
+        font-size: 1.1em;
+		font-weight: bold;
+		border-style: none;
+		margin-left: 80px; }
+footer a:visited {
+	color: #ffffff;
+}
+
+footer a:hover {
+	color: #000000;
+}
+
+footer ul { padding: 0px;
+		 margin: 0px;
+	     list-style-type: none;
+}
+.tt { font-family: "Edwardian Script ITC", "Brush Script Std", "Kunstler Script", "Segoe Script";
+font-size: 20px;
+-webkit-transition: color 3s;
+-webkit-transition-timing-function: linear;
+transition: color 3s;
+transition-timing-function: linear;
+-webkit-transition: text-shadow 1s;
+transition: text-shadow 1s;
+
+ }
+.tt:hover { color: gold;
+		 text-shadow: 1px 5px 1px #000000;}
+h2 { text-align: center; }
+p { padding-left: 20px; padding-right: 20px; }
+
+.animate1 {position: relative;
+		height: 90px;	animation-name: myfirst;
+		animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 6s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+.animate2 {position: relative;
+			 	height: 100px;
+				animation-name: myfirst;
+				
+        animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 5s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running; 
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 5s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+			
+				}
+.animate3 { position: relative;
+			 	height: 90px;
+				animation-name: myfirst;
+			
+        animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 2s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;	
+				}
+.animate4 {position: relative;
+		height: 100px;	animation-name: myfirst;
+		animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 3s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+.animate5  {position: relative;
+		height: 100px;	animation-name: myfirst;
+		animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 4s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 4s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+.animate6 {position: relative;
+		height: 90px;	animation-name: myfirst;
+		animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 8s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 8s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+.animate7 {position: relative;
+		height: 90px;	animation-name: myfirst;
+		animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-delay: 14s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-play-state: running;
+		-webkit-animation-name: myfirst;
+		-webkit-animation-duration: 8s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-delay: 14s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-play-state: running;
+		
+				}
+		@keyframes myfirst {
+   0%   {left:0px; top:0px; opacity: 1;}
+	 10% {left:70px; top: 40px; opacity: 1;}
+    20%  {left:0px; top:90px; opacity: 0.9;}
+		30% {left:70px; top: 110px; opacity: 0.8;}
+		40% {left: 0px; top: 150px; opacity: 0.7;}
+    50%  {left:85px; top:200px; opacity: 0.6;}
+    60%  {left:0px; top:260px; opacity: 0.5;}
+		70% {left:60px; top: 290px; opacity: 0.4;}
+		80% {left: 0px; top: 350px; opacity: 0.3;}
+		90% {left: 70px; top: 400px; opacity: 0.2;}
+    100% {left:0px; top:470px; opacity: 0;}
+}
+@-webkit-keyframes myfirst {
+   0%   {left:0px; top:0px; opacity: 1;}
+	 10% {left:70px; top: 40px; opacity: 1;}
+    20%  {left:0px; top:90px; opacity: 0.9;}
+		30% {left:70px; top: 110px; opacity: 0.8;}
+		40% {left: 0px; top: 150px; opacity: 0.7;}
+    50%  {left:85px; top:200px; opacity: 0.6;}
+    60%  {left:0px; top:260px; opacity: 0.5;}
+		70% {left:60px; top: 290px; opacity: 0.4;}
+		80% {left: 0px; top: 350px; opacity: 0.3;}
+		90% {left: 70px; top: 400px; opacity: 0.2;}
+    100% {left:0px; top:470px; opacity: 0;}
+}
+#image1 { position: absolute; left: 200px; top: 0px; }
+#image2 { position: absolute; left: 400px; top: 0px; }
+#image3 { position: absolute; left: 600px; top: 0px; }
+#image4 { position: absolute; left: 800px; top: 0px; }
+#image5 { position: absolute; left: 1000px; top: 0px; }
+#image6 { position: absolute; left: 500px; top: 0px; }
+#image7 { position: absolute; left: 700px; top: 0px; }
