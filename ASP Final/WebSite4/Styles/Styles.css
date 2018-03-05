@@ -1,0 +1,119 @@
+﻿
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 85%;
+    margin: 0 auto;
+    padding: 10px;
+    width: 80%;
+}
+#wrapper {
+    background-color: dodgerblue;
+    box-shadow: 5px 5px 5px ghostwhite;
+    font-family: Aharoni;
+    width: 100%;
+}
+
+header{
+    text-align: center;
+    
+}
+img {width: 100%; height: auto;}
+
+hr {
+    border-color: black;
+}
+main {
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow: auto;
+
+}
+nav { float: none;
+	   width: auto;
+	   letter-spacing:0.1em;
+	   font-weight: bold;
+} 
+nav ul { list-style-type: none; 
+         margin: 0;
+         padding: 0;
+         text-align: center;
+}
+nav li { padding: 15px;
+         display:inline-block;
+         
+}
+
+nav a { text-decoration: none; 
+}
+nav a:link { color: black; }
+nav a:visited { color: ghostwhite; }
+nav a:hover {  color: yellow; }
+p {text-align: left;
+   font-size: medium;
+}
+h3 {
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+footer { font-size:70%;
+         text-align: center;
+		 clear: right;
+         padding: 20px;
+		 background-color: #869dc7;
+}
+#left {
+ 
+    float: left;
+    width: 50%;
+    
+}
+.what {
+    display: inline-block;
+    vertical-align: top;
+   max-width: 100%;
+   height: auto;
+}
+#right {
+   float: right;
+   width: 50%;
+   text-align: center;
+}
+.stuff {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    background-color: ghostwhite;
+}
+.wrong {
+    margin-left: 12px;
+    font-size: large;
+}
+
+.trows{
+    font-size: large;
+    overflow: hidden;
+    text-align: center;
+   width: 100px;
+}
+.arows {
+    font-size: small;
+    overflow: hidden;
+    text-align: right;
+   width: 100px;
+}
+table {
+    background-color: ghostwhite;
+
+}
+ .cn {text-align: center;
+        }
+@media only screen and (max-width: 768px) {
+    nav a { display: block;
+        padding: 0.2em;
+		width: auto;
+		border-bottom: 1px solid #330000;
+		}
+nav li { display: block; }
+
+}
