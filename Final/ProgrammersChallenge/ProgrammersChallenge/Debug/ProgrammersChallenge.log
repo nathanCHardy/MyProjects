@@ -1,0 +1,8 @@
+﻿  utility.cpp
+  StorySync.cpp
+  Source.cpp
+  GameMech.cpp
+g:\c++ one\final\programmerschallenge\programmerschallenge\gamemech.cpp(359): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
+g:\c++ one\final\programmerschallenge\programmerschallenge\gamemech.cpp(418): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  ProgrammersChallenge.vcxproj -> G:\C++ One\Final\ProgrammersChallenge\Debug\ProgrammersChallenge.exe

@@ -1,0 +1,2 @@
+void StoryStart();
+void endGame();
